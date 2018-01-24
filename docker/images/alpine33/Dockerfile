@@ -11,22 +11,27 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # Install node
-
-# RUN apk add --update nodejs=${NODE_VERSION}-r1;
-
 RUN apk add --update nodejs=${NODE_VERSION}-r1;
+
+# RUN apk --update add tar
+# RUN apk --update add xz
+
+# RUN mkdir nodejs
+# RUN wget http://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x86.tar.gz
+# RUN ls -a .
+# RUN tar -xvzf node-v8.9.4-linux-x86.tar.gz -C ./nodejs
+# RUN mv ./nodejs/node-v8.9.4-linux-x86 ./nodejs/node-v8.9.4
+# RUN export NODEJS_HOME=/nodejs/node-v8.9.4
+# RUN export PATH=$NODEJS_HOME/bin:$PATH
+# RUN pwd
+# RUN . ~/.profile
+# RUN node -v
 
 RUN mkdir newman
 
 ADD . /newman
 
 RUN npm install -g /newman
-
-# Set newman version
-# ENV NEWMAN_VERSION 3.9.0
-
-# Install newman
-# RUN npm install -g newman@${NEWMAN_VERSION};
 
 # Set workdir to /etc/newman
 # When running the image, mount the directory containing your collection to this location

@@ -1,5 +1,5 @@
 IMAGES_BASE_PATH="./docker/images"
-TRAVIS_TAG="4.1.2"
+TRAVIS_TAG="4.1.4"
 function build_docker_image {
 	echo "building image for $1"
     BASENAME=$(basename $1)
@@ -27,4 +27,13 @@ for image in $IMAGES_BASE_PATH/*; do
     fi
 done
 
-
+# for image in $IMAGES_BASE_PATH/*; do
+#     if [ -d "${image}" ] && [ -f "${image}/Dockerfile" ]; then
+#     	cp "${image}/Dockerfile" .
+# 	    BASENAME=$(basename "$image")
+# 	    if [ "$BASENAME" = "alpine33" ]; then
+# 	        build_docker_image ${image};
+# 	    fi
+#         rm -f ./Dockerfile
+#     fi
+# done
