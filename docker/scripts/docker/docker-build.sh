@@ -2,7 +2,7 @@
 
 set -e;
 
-IMAGES_BASE_PATH="./images";
+IMAGES_BASE_PATH="../../images";
 CURRENT_BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 function build_docker_image {
