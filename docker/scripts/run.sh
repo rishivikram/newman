@@ -18,7 +18,7 @@ function build_docker_image {
 }
 
 NODE_V=$(node -v | grep -o "v.")
-
+echo "$TRAVIS_NODE_VERSION"
 IMAGES_BASE_PATH="./docker/images"
 if [ -n "$TRAVIS_TAG" ] && [ "$NODE_V" = "v8" ]; then
     for image in $IMAGES_BASE_PATH/*; do
